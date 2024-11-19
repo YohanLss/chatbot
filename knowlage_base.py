@@ -12,10 +12,10 @@ def create_knowledge_base(soup):
 
 
 def scrape_website(url):
-    # Faites une requête GET à l'URL spécifiée
+    # Fais une requête GET à l'URL spécifiée
     response = requests.get(url)
 
-    # Vérifiez si la requête a réussi
+    # Vérifie si la requête a réussi
     if response.status_code == 200:
         # Utilisez BeautifulSoup pour analyser le contenu HTML
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -40,11 +40,11 @@ def scrape_website(url):
         for image in images:
             print("Image:", image['src'])
 
-        # Appeler la fonction create_knowledge_base avec l'objet soup comme argument
+        # Appele la fonction create_knowledge_base avec l'objet soup comme argument
         knowledge_base = create_knowledge_base(soup)
 
-        # Maintenant, vous pouvez utiliser la base de connaissances créée
-        # Par exemple, imprimez les clés et les valeurs
+        
+        # imprime les clés et les valeurs
         for key, value in knowledge_base.items():
             print(f"Clé : {key}")
             print(f"Valeur : {value}")
@@ -56,17 +56,17 @@ def scrape_website(url):
 
 
 
-# Appeler la fonction scrape_website avec l'URL
+# Appele la fonction scrape_website avec l'URL
 url = 'https://liveyourz.art/'
 soup=scrape_website(url)
 
 
-# Maintenant, vous pouvez utiliser l'objet soup retourné par scrape_website
-# Appeler la fonction create_knowledge_base avec cet objet soup comme argument
+
+# Appele la fonction create_knowledge_base avec cet objet soup comme argument
 knowledge_base = create_knowledge_base(soup)
 
-# Maintenant, vous pouvez utiliser la base de connaissances créée
-# Par exemple, imprimez les clés et les valeurs
+
+#imprime les clés et les valeurs
 for key, value in knowledge_base.items():
     print(f"Clé : {key}")
     print(f"Valeur : {value}")
